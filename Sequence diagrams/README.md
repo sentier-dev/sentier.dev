@@ -20,17 +20,35 @@ sequenceDiagram
     participant Runner
     participant Log
     Frontend-->>Orchestrator: Calculate(impact category, product)
-    Orchestrator-->>Glossary: Who produces product?
-    Glossary-->>Orchestrator: Model reference
-    Orchestrator-->>Runner: Apply(demand)
-    Runner-->>Orchestrator: Return result object
+    Orchestrator-->>+Glossary: Who produces product?
+    Glossary-->>-Orchestrator: Model reference
+    Orchestrator-->>+Runner: Apply(demand)
+    Runner-->>-Orchestrator: Return result object
     Orchestrator-->>Log: Write emissions and context from model
     Note right of Orchestrator: Decompose result object
-    Orchestrator-->>Glossary: Who produces dependent product 1? 
+    Orchestrator-->>+Glossary: Who produces dependent product 1? 
+    Glossary-->>-Orchestrator: Model reference
+    Orchestrator-->>+Runner: Apply(demand)
+    Runner-->>-Orchestrator: Return result object
     Note right of Orchestrator: Iterate throughout supply chain
-    Glossary-->>Orchestrator: Model reference
-    Orchestrator-->>Runner: Apply(demand)
-    Runner-->>Orchestrator: Return result object
     Log-->>Orchestrator: Read graph structure
     Orchestrator-->>Frontend: Result report
+```
+
+Graph traversal:
+
+```mermaid
+sequenceDiagram
+	participant Queue
+	participant Orchestrator
+	participant Runner
+	Runner-->>Orchestrator: Return result object
+    Note right of Orchestrator: Decompose result object
+    Note right of Orchestrator: For demand in result
+    Orchestrator->>Queue: Push demands
+    Runner-->>Orchestrator: Ready signal
+    Queue-->>Orchestrator: Pop most important demand
+    Orchestrator-->>Runner: Apply(demand)
+    Runner-->>Orchestrator: Return result object
+    Note right of Orchestrator: Iterate
 ```
