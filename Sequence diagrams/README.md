@@ -14,6 +14,11 @@ Running a calculation from the perspective of the orchestrator:
 
 ```mermaid
 sequenceDiagram
+    participant Frontend
+    participant Glossary
+    participant Orchestrator
+    participant Runner
+    participant Log
     Frontend-->>Orchestrator: Calculate(impact category, product)
     Orchestrator-->>Glossary: Who produces product?
     Glossary-->>Orchestrator: Model reference
@@ -21,4 +26,8 @@ sequenceDiagram
     Runner-->>Orchestrator: Ready
     Orchestrator-->>Runner: Apply(demand)
     Runner-->>Orchestrator: Return result object
+    Orchestrator-->>Log: Write direct emissions and context from model
+    Note right of Orchestrator: Decompose result object
+    Orchestrator-->>Glossary: Who produces dependent product 1? 
+    Note right of Orchestrator: Iterate throughout supply chain
 ```
