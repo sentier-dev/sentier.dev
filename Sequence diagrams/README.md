@@ -30,4 +30,5 @@ sequenceDiagram
     Note right of Orchestrator: Decompose result object
     Orchestrator-->>Glossary: Who produces dependent product 1? 
     Note right of Orchestrator: Iterate throughout supply chain
+    Orchestrator-->>Frontend: Result report
 ```
