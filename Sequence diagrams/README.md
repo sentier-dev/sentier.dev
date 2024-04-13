@@ -22,13 +22,15 @@ sequenceDiagram
     Frontend-->>Orchestrator: Calculate(impact category, product)
     Orchestrator-->>Glossary: Who produces product?
     Glossary-->>Orchestrator: Model reference
-    Orchestrator-->>Runner: Start(model)
-    Runner-->>Orchestrator: Ready
     Orchestrator-->>Runner: Apply(demand)
     Runner-->>Orchestrator: Return result object
-    Orchestrator-->>Log: Write direct emissions and context from model
+    Orchestrator-->>Log: Write emissions and context from model
     Note right of Orchestrator: Decompose result object
     Orchestrator-->>Glossary: Who produces dependent product 1? 
     Note right of Orchestrator: Iterate throughout supply chain
+    Glossary-->>Orchestrator: Model reference
+    Orchestrator-->>Runner: Apply(demand)
+    Runner-->>Orchestrator: Return result object
+    Log-->>Orchestrator: Read graph structure
     Orchestrator-->>Frontend: Result report
 ```
