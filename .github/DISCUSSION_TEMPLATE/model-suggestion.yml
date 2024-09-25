@@ -1,0 +1,35 @@
+title: "(Add your new model suggestion here!)"
+labels: ["Suggest a New Model"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Model name
+      description: "What is the full name of this model"
+      value: |
+        ...
+    validations:
+      required: true
+  - type: input
+    id: homepage
+    attributes:
+      label: Model Homepage URL
+      description: "Provide the URL to the model homepage"
+      value: |
+        ...
+    validations:
+      required: true
+  - type: textarea
+    id: justification
+    attributes:
+      label: Justify this Model Choice
+      description: "Justify the choice of this specific model. Is there a peer reviewed publication on its logic and structure? How is it different and better than similar models in this industry sector? Is the logic available under a suitable open license which allows for commercial use? Does it have a history of maintenance and a community reputation?"
+    validations:
+      required: true
+  - type: textarea
+    id: importing
+    attributes:
+      label: Converting the Model Code
+      description: "Describe what work would be needed to transform this model into a Python model which could run on the Sentier.dev infrastructure. Does it need to be converted from a spreadsheet? Does the model have tests and known good results? Is there documentation? Are there outlier filters or other input validators?"
+    validations:
+      required: true
