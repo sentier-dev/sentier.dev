@@ -1,0 +1,44 @@
+title: "(Add your new data source suggestion here!)"
+labels: ["Suggest a New Data Source"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Data Source name
+      description: "What is the name of this data source"
+      value: |
+        ...
+    validations:
+      required: true
+  - type: input
+    id: homepage
+    attributes:
+      label: Data Source Homepage URL
+      description: "Provide the URL to the data source"
+      value: |
+        ...
+    validations:
+      required: true
+  - type: input
+    id: license
+    attributes:
+      label: Data License
+      description: "Is there an explicit license?"
+      value: |
+        ...
+    validations:
+      required: true
+  - type: textarea
+    id: justification
+    attributes:
+      label: Justify this Data Source Choice
+      description: "Justify the choice of this specific data source. Is it regularly updated? Is it published in via API, or in a reasonable data format? Are there alternative sources for similar data?"
+    validations:
+      required: true
+  - type: textarea
+    id: area
+    attributes:
+      label: Area of Application
+      description: "Where and how would we use this data?"
+    validations:
+      required: true

@@ -19,6 +19,24 @@ body:
         ...
     validations:
       required: true
+  - type: input
+    id: license
+    attributes:
+      label: Model License
+      description: "Is there an explicit license? This is required for source code we will adapt, but not for models we will have to redo"
+      value: |
+        ...
+    validations:
+      required: false
+  - type: input
+    id: area
+    attributes:
+      label: Area of application
+      description: "Where and how would we use this model?"
+      value: |
+        ...
+    validations:
+      required: true
   - type: textarea
     id: justification
     attributes:
