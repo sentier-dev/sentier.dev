@@ -1,5 +1,13 @@
 # Sequence diagrams
 
+## Data platform architecture
+
+A high-level view of the DDS data platform, organized along Domain Driven Design lines into an Application Layer (models, calculation platform, importers) and a Data Layer (vocab, inventory, methods), with 3rd-party datasources feeding in and mappings underneath.
+
+![DDS data platform architecture](architecture.png)
+
+## Sequence diagrams
+
 The diagrams were built with the following hypothesis as basis:
 
 + Orchestration service will launch containerization (docker/podman/runc) objects
